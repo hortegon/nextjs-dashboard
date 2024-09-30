@@ -1,0 +1,75 @@
++-------------------------+
+|     Cliente en Mesa     |
++-------------------------+
+           |
+           |  Realiza pedido
+           |
+           v
++-------------------------+
+|     OrderForm           |
+| (Seleccionar ítems y    |
+|  mesa, enviar pedido)   |
++-------------------------+
+           |
+           |  Enviar pedido
+           |
+           v
++-------------------------+
+|   API /api/orders       |
+|  (Guardar orden y       |
+|  notificar a la cocina) |
++-------------------------+
+           |
+           |  Nueva orden creada
+           |
+           v
++-------------------------+
+|      Pantalla Cocina     |
+|       (kitchen.js)      |
++-------------------------+
+           |
+           |  Obtener órdenes
+           |
+           v
++-------------------------+
+|   KitchenOrderItem      |
+| (Listar órdenes         |
+|  pendientes)            |
++-------------------------+
+           |
+           |  Completar pedido
+           |
+           v
++-------------------------+
+|   API /api/orders/:id   |
+|   (Actualizar estado     |
+|   de la orden a 'completada')|
++-------------------------+
+           |
+           |  Orden completada
+           |
+           v
++-------------------------+
+|   Registrar Total        |
+|   (Guardar total de la   |
+|   cuenta en la base de   |
+|   datos)                 |
++-------------------------+
+           |
+           |  Total registrado
+           |
+           v
++-------------------------+
+|   API /api/inventory    |
+|   (Descontar productos   |
+|   vendidos)             |
++-------------------------+
+           |
+           |  Inventario actualizado
+           |
+           v
++-------------------------+
+|     Pantalla Cocina     |
+|  (Actualiza vista de    |
+|   órdenes pendientes)   |
++-------------------------+
