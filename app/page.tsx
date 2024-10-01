@@ -1,58 +1,87 @@
-import AcmeLogo from '@/app/ui/acme-logo';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link';
-import styles from '@/app/ui/home.module.css';
-import { lusitana } from '@/app/ui/fonts';
-import Image  from 'next/image';
+import React from 'react'
+import RestaurantApp from '@/app/RestaurantApp'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { BarChart, Users, DollarSign, ShoppingCart } from 'lucide-react'
 
-export default function Page() {
+export default function DashboardPage() {
   return (
-    
-    <main className="flex min-h-screen flex-col p-6">
-      <div className={styles.shape} />
-      <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
-        {/* <AcmeLogo /> */}
-        </div>
-
+    <div className="p-6 space-y-6">
+      <h1 className="text-3xl font-bold">Dashboard</h1>
       
-      <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
-        <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
-          <p
-            className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}
-            >
-            <strong>......! Bienvenido a Portionex !...... </strong>
-              
-            <a className="text-blue-500">
-            Porciones que conquistan tu paladar! 
-            </a>
-            , Porciones que conquistan tu paladar! 
-          </p>
-          
-          <Link
-            href="/login"
-            className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
-          >
-            <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
-          </Link>
-        </div>
-        <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
-          {/* Add Hero Images Here */}
-          <Image
-        src="/hero-desktop.png"
-        width={1000}
-        height={760}
-        className="hidden md:block"
-        alt="Screenshots of the dashboard project showing desktop version"
-      />
-      <Image
-        src="/hero-mobile.png"
-        width={560}
-        height={620}
-        className="block md:hidden"
-        alt="Screenshot of the dashboard project showing mobile version"
-      />
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
+            <DollarSign className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">$45,231.89</div>
+            <p className="text-xs text-muted-foreground">+20.1% from last month</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Orders</CardTitle>
+            <ShoppingCart className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">+2350</div>
+            <p className="text-xs text-muted-foreground">+180.1% from last month</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">New Customers</CardTitle>
+            <Users className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">+12,234</div>
+            <p className="text-xs text-muted-foreground">+19% from last month</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Active Now</CardTitle>
+            <BarChart className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">+573</div>
+            <p className="text-xs text-muted-foreground">+201 since last hour</p>
+          </CardContent>
+        </Card>
       </div>
-    </main>
-  );
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Recent Sales</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              {[1, 2, 3, 4, 5].map((_, index) => (
+                <div key={index} className="flex items-center">
+                  <div className="w-9 h-9 rounded-full bg-gray-200 mr-3"></div>
+                  <div className="flex-1">
+                    <p className="text-sm font-medium">Customer {index + 1}</p>
+                    <p className="text-xs text-muted-foreground">customer{index + 1}@example.com</p>
+                  </div>
+                  <div className="text-sm font-medium">+${(Math.random() * 100).toFixed(2)}</div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle>Restaurant App</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <RestaurantApp />
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  )
 }

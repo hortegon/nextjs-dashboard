@@ -1,6 +1,11 @@
-export default function Caja() {
-    return <h1>Caja recibe las confirmaciones de cocina, necesita producto, cantidad "1 o 0.5" porciones </h1>
-        
-        
-       
-  }
+
+
+import { Button } from "@/components/ui/button"
+
+export default function Home() {
+  return (
+    <div>
+      <Button>Click me</Button>
+    </div>
+  )
+}
