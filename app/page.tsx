@@ -75,7 +75,7 @@ export default function DashboardPage() {
         
         <Card>
           <CardHeader>
-            <CardTitle>Restaurant App</CardTitle>
+            <CardTitle>Portionx App</CardTitle>
           </CardHeader>
           <CardContent>
             <RestaurantApp />

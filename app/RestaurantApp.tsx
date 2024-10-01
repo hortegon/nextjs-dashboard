@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -45,7 +46,7 @@ export default function RestaurantApp() {
   return (
     <div className="flex flex-col md:flex-row h-[calc(100vh-100px)]">
       <div className="md:w-2/3 p-4 overflow-auto">
-        <h2 className="text-xl font-bold mb-4">Menú del Restaurante</h2>
+        <h2 className="text-xl font-bold mb-4">Menú Portionex</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {dishes.map((dish) => (
             <Card key={dish.id}>
@@ -77,7 +78,7 @@ export default function RestaurantApp() {
                   <span>
                     {item.name} - {item.portion === 'full' ? 'Porción completa' : 'Media porción'} - ${item.price}
                   </span>
-                  <Button variant="destructive" size="sm" onClick={() => removeFromCart(index)}>Eliminar</Button>
+                  <Button variants="destructive" size="sm" onClick={() => removeFromCart(index)}>Eliminar</Button>
                 </li>
               ))}
             </ul>
