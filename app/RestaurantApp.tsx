@@ -78,7 +78,7 @@ export default function RestaurantApp() {
                   <span>
                     {item.name} - {item.portion === 'full' ? 'Porción completa' : 'Media porción'} - ${item.price}
                   </span>
-                  <Button variants="destructive" size="sm" onClick={() => removeFromCart(index)}>Eliminar</Button>
+                  <Button variant="destructive" size="sm" onClick={() => removeFromCart(index)}>Eliminar</Button>
                 </li>
               ))}
             </ul>
